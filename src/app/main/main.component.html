@@ -1,0 +1,119 @@
+<main class="main">  
+    <div class="container">
+
+        <div class='row main-row'>
+            <h2 class='main-row__title--pay'>PAY</h2>
+            <form class='pay-form' ngModel #payForm>
+            <fieldset class='form-fieldset'>
+                <div class="input-group">
+                    <label class="form-label currency-label" for="payCurrencySel">
+                    <img class='main-currency-flag currency-flag--pay' [src]='payCurrencyPic'>
+                        <select 
+                            class="form-select"  
+                            id="payCurrencySel"
+                            data-id='payInp'
+                            ngModel 
+                            #paySelect
+                            (change)="selectHandlerPay($event)"
+                            >
+                            <option value='UAH'>UAH</option>
+                            <option value='USD'>USD</option>
+                            <option value='EUR'>EUR</option>
+                        </select >
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label class="form-label input-label" for="payInp">
+                        <input 
+                        class="form-control" 
+                        type='number' 
+                        id='payInp' 
+                        [placeholder]='payPlaceholder'
+                        ngModel 
+                        #payInp
+                        (input)="payInputHandler($event)"
+                        [value]="payInputVal"
+                        />
+                        
+                    </label>
+                </div>
+                
+            </fieldset>
+            
+            <button 
+            class='clear-btn' 
+            data-id='payInp'
+            ngModel 
+            #payClearBtn
+            (click)="clearInput($event)"
+            >
+            clear
+        </button>
+        </form>
+</div>
+
+
+        <div class='swap-btn'>
+            <div ngModel #mainLoader>
+                <app-loader></app-loader>
+            </div>
+            <div ngModel #mainImgCntainer>
+                <img src='./assets/circle.png' class='swap-img' alt='switch button img' (click)='swapForms()'/>
+            </div>
+            
+            
+        </div>
+
+        <div class='row main-row'>
+        <h2 class='main-row__title--get'>GET</h2>
+        <form class='get-form' ngModel #getForm>
+                <fieldset 
+                class='form-fieldset' 
+                >
+                    <div class="input-group">
+                        <label class="form-label currency-label" for="getCurrencySel">
+                        <img class='main-currency-flag currency-flag--get' [src]='getCurrencyPic' alt=''/>
+                            <select 
+                            class="form-select" 
+                            id="getCurrencySel"
+                            data-id='getInp' 
+                            ngModel 
+                            #getSelect
+                            (change)="selectHandlerGet($event)"
+                            >
+                                <option value='USD'>USD</option>
+                                <option value='UAH'>UAH</option>
+                                <option value='EUR'>EUR</option>
+                            </select >
+                        </label>
+                        </div>
+                    <div class="input-group" >
+                        <label class="form-label input-label" for="getInp">
+                            <input 
+                            class="form-control" 
+                            type='number' 
+                            id='getInp' 
+                            [placeholder]='getPlaceholder' 
+                            [value]='getInputVal' 
+                            ngModel 
+                            #getInp
+                            (input)="getInputHandler($event)"
+                            />
+                        </label>
+                    </div>  
+                    
+                </fieldset>
+                <button 
+                class='clear-btn' 
+                data-id='getInp'
+                (click)="clearInput($event)"
+                ngModel 
+                #getClearBtn
+                >
+                clear
+            </button>
+        </form>     
+</div>
+</div>
+</main>

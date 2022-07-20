@@ -1,0 +1,40 @@
+<header class="header">
+    <div class="container">
+        <div class="row header-row">
+            <div class="col">
+                <img class='header__logo' 
+                [src]='logoUrl'
+                alt=''/>
+            </div>
+            <div class="col display">
+                <img class='display__flag' [src]='eurUrl' alt=''/>
+                <span class='display__name'>EUR</span>
+                <div class='display__value'>
+                    <div ngModel #eurLoader>
+                        <app-loader></app-loader>  
+                    </div>
+                    <div ngModel #eurRate>
+                        {{EUR}} 
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="col display">
+                <img class='display__flag' [src]='usdUrl' alt=''/>
+                <span class='display__name'>USD</span>
+                <div class='display__value'>
+                    <div ngModel #usdLoader>
+                        <app-loader></app-loader>
+                    </div>
+                    <div ngModel #usdRate>
+                        {{USD}}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</header>      
